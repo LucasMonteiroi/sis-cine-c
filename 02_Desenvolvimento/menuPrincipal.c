@@ -48,7 +48,7 @@ int main()
         printf("3 - Sair\n\n");
         printf("Escolha uma das opções acima: ");
         scanf("%d", &op);
-        getch();
+
         switch (op)
         {
             case 1:
