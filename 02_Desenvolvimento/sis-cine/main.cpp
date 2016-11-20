@@ -4,6 +4,27 @@
 #include "cstdlib"
 #include "menu.c"
 
+struct poltrona{
+    int assento;
+    int status;
+};
+
+struct reserva{
+    int fileira[10];
+    struct poltrona poltronas[15];
+};
+
+struct sessao{
+    int opcaoHorario;
+    struct reserva res;
+};
+
+struct filme{
+    int opcaoFilme;
+    char nomeFilme;
+    struct sessao ses[3];
+};
+
 void pularLinha(int linhas){
         int i;
         for(i=0;i<linhas;i++)
@@ -21,8 +42,9 @@ int main()
     // Inserindo a Localidade para mostrar acentuação e unidades monetárias
     setlocale(LC_ALL, "Portuguese");
 
-    int opcaoMenu, opcaoFilme;
+    int opcaoMenu, opcaoFilme, opcaoSessao, opcaoValida, opcaoFechamento;
 
+    while(opcaoMenu != 3){
     exibirBoasVindas();
     pularLinha(1);
     exibirMenuPrincipal();
@@ -31,31 +53,71 @@ int main()
     printf("Escolha uma opção: ");
     scanf("%d", &opcaoMenu);
 
-    printf("Opção escolhida: %d", opcaoMenu);
-    pularLinha(1);
-    system("pause");
-    limparTela();
+    opcaoValida = validaMenu(opcaoMenu);
 
-    switch(opcaoMenu)
-    {
-        case 1:
-            exibirFilmesDisponiveis();
-            pularLinha(1);
-
-            printf("Selecione uma opção: ");
-            scanf("%d", &opcaoFilme);
-
-            printf("Opção escolhida: %d", opcaoFilme);
-
-            pularLinha();
-            exibirSessaoParaFilme(opcaoFilme);
-
-            break;
-        case 2:
-            exibirMenuFechamento();
-            break;
-        case 3:
-            printf("Você selecionou a opção para sair do sistema.... Até logo!");
-            break;
+    if(opcaoValida == 1){
+        printf("Opção escolhida: %d", opcaoMenu);
     }
+    else{
+        system("pause");
+        limparTela();
+    }
+
+    pularLinha(1);
+
+    if(opcaoMenu == 3){
+        printf("Você selecionou a opção para sair do sistema.... Até logo!");
+    }
+        switch(opcaoMenu)
+        {
+
+            case 1:
+                limparTela();
+                exibirFilmesDisponiveis();
+                pularLinha(1);
+
+                printf("Selecione uma opção: ");
+                scanf("%d", &opcaoFilme);
+
+                opcaoValida = validarFilme(opcaoFilme);
+
+                if(opcaoValida == 1){
+                    printf("Opção escolhida: %d", opcaoFilme);
+                }
+                else
+                {
+                    break;
+                }
+
+                pularLinha(1);
+                exibirSessaoParaFilme(opcaoFilme);
+
+                pularLinha(1);
+
+                printf("Escolha uma opção: ");
+                scanf("%d", &opcaoSessao);
+
+                if(opcaoValida =! 1){
+                    break;
+                }
+
+                printf("Opção escolhida: %d", opcaoSessao);
+
+                limparTela();
+                break;
+            case 2:
+                limparTela();
+                exibirMenuFechamento();
+
+                pularLinha(1);
+
+                printf("Escolha uma opção: ");
+                scanf("%d", &opcaoFechamento);
+
+                system("pause");
+                break;
+        }
+    }
+
+
 }

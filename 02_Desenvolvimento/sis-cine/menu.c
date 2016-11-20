@@ -48,37 +48,86 @@ void exibirSessaoParaFilme(int opcaoFilme){
 
     if(opcaoFilme == 1){
         // Exibir Menu de Sessoes
+        printf("|-------------------------------------------|\n");
+        printf("|                                           |\n");
+        printf("|   Filme Escolhido: Os Vingadores          |\n");
+        printf("|   Sessões:                                |\n");
+        printf("|   1 - 12:00                               |\n");
+        printf("|   2 - 15:00                               |\n");
+        printf("|   3 - 17:00                               |\n");
+        printf("|                                           |\n");
+        printf("|___________________________________________|\n");
+
     }
     else if(opcaoFilme == 2){
-
+        printf("|-------------------------------------------|\n");
+        printf("|                                           |\n");
+        printf("|   Filme Escolhido: Batman                 |\n");
+        printf("|   Sessões:                                |\n");
+        printf("|   1 - 12:00                               |\n");
+        printf("|   2 - 15:00                               |\n");
+        printf("|   3 - 17:00                               |\n");
+        printf("|                                           |\n");
+        printf("|___________________________________________|\n");
     }
     else if(opcaoFilme == 3){
-
+        printf("|-------------------------------------------|\n");
+        printf("|                                           |\n");
+        printf("|   Filme Escolhido: Homem de Ferro         |\n");
+        printf("|   Sessões:                                |\n");
+        printf("|   1 - 12:00                               |\n");
+        printf("|   2 - 15:00                               |\n");
+        printf("|   3 - 17:00                               |\n");
+        printf("|                                           |\n");
+        printf("|___________________________________________|\n");
     }
     else if(opcaoFilme == 4){
-
+        printf("|-------------------------------------------|\n");
+        printf("|                                           |\n");
+        printf("|   Filme Escolhido: Superman               |\n");
+        printf("|   Sessões:                                |\n");
+        printf("|   1 - 12:00                               |\n");
+        printf("|   2 - 15:00                               |\n");
+        printf("|   3 - 17:00                               |\n");
+        printf("|                                           |\n");
+        printf("|___________________________________________|\n");
     }
     else {
         // Opcao invalida
+        printf("Opção Inválida");
     }
 }
 
-bool validarFilme(int opcaoFilme){
+int validaMenu(int opcaoMenu){
+    if(opcaoMenu > 3)
+    {
+        printf("Opção Inválida\n\n");
+        return 0;
+    }
+    else{
+        return 1;
+    }
+}
+
+int validarFilme(int opcaoFilme){
     if(opcaoFilme > 4)
     {
-        // Opcao Invalida
+        printf("Opção Inválida");
+        return 0;
     }
     else{
-        // Opcao Valida
+        return 1;
     }
 }
 
-bool validarSessao(int opcaoSessao){
+int validarSessao(int opcaoSessao){
     if(opcaoSessao > 4)
     {
-        // Opcao Invalida
+        printf("Opção Inválida");
+        return 0;
     }
     else{
         // Opcao Valida
+        return 1;
     }
 }
