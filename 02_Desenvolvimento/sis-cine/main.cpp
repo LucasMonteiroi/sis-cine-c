@@ -46,6 +46,10 @@ int main()
             scanf("%d", &opcaoFilme);
 
             printf("Opção escolhida: %d", opcaoFilme);
+
+            pularLinha();
+            exibirSessaoParaFilme(opcaoFilme);
+
             break;
         case 2:
             exibirMenuFechamento();

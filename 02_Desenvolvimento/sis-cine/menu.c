@@ -43,3 +43,42 @@ void exibirMenuFechamento(){
     printf("|                                           |\n");
     printf("|___________________________________________|\n");
 }
+
+void exibirSessaoParaFilme(int opcaoFilme){
+
+    if(opcaoFilme == 1){
+        // Exibir Menu de Sessoes
+    }
+    else if(opcaoFilme == 2){
+
+    }
+    else if(opcaoFilme == 3){
+
+    }
+    else if(opcaoFilme == 4){
+
+    }
+    else {
+        // Opcao invalida
+    }
+}
+
+bool validarFilme(int opcaoFilme){
+    if(opcaoFilme > 4)
+    {
+        // Opcao Invalida
+    }
+    else{
+        // Opcao Valida
+    }
+}
+
+bool validarSessao(int opcaoSessao){
+    if(opcaoSessao > 4)
+    {
+        // Opcao Invalida
+    }
+    else{
+        // Opcao Valida
+    }
+}
