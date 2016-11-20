@@ -50,7 +50,7 @@ void exibirSessaoParaFilme(int opcaoFilme){
         // Exibir Menu de Sessoes
         printf("|-------------------------------------------|\n");
         printf("|                                           |\n");
-        printf("|   Filme Escolhido: Os Vingadores          |\n");
+        printf("|   Filme Escolhido: Batman                 |\n");
         printf("|   Sessões:                                |\n");
         printf("|   1 - 12:00                               |\n");
         printf("|   2 - 15:00                               |\n");
@@ -62,7 +62,7 @@ void exibirSessaoParaFilme(int opcaoFilme){
     else if(opcaoFilme == 2){
         printf("|-------------------------------------------|\n");
         printf("|                                           |\n");
-        printf("|   Filme Escolhido: Batman                 |\n");
+        printf("|   Filme Escolhido: Os Vingadores          |\n");
         printf("|   Sessões:                                |\n");
         printf("|   1 - 12:00                               |\n");
         printf("|   2 - 15:00                               |\n");

@@ -3,27 +3,7 @@
 #include "locale.h"
 #include "cstdlib"
 #include "menu.c"
-
-struct poltrona{
-    int assento;
-    int status;
-};
-
-struct reserva{
-    int fileira[10];
-    struct poltrona poltronas[15];
-};
-
-struct sessao{
-    int opcaoHorario;
-    struct reserva res;
-};
-
-struct filme{
-    int opcaoFilme;
-    char nomeFilme;
-    struct sessao ses[3];
-};
+#include "sessoes.c"
 
 void pularLinha(int linhas){
         int i;
@@ -103,6 +83,9 @@ int main()
 
                 printf("Opção escolhida: %d", opcaoSessao);
 
+                exibirAssentos(opcaoFilme, opcaoSessao);
+
+                system("pause");
                 limparTela();
                 break;
             case 2:
