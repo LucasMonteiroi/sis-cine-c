@@ -24,7 +24,7 @@ int main()
 
     int opcaoMenu, opcaoFilme, opcaoSessao, opcaoValida, opcaoFechamento;
 
-    iniciarPoltronas();
+    liberarPoltronas();
 
     while(opcaoMenu != 3){
         exibirBoasVindas();
@@ -91,7 +91,7 @@ int main()
                     break;
                 }
 
-                exibirAssentos(opcaoFilme, opcaoSessao);
+                verificaSessaoEReserva(opcaoFilme, opcaoSessao);
 
                 system("pause");
                 limparTela();
