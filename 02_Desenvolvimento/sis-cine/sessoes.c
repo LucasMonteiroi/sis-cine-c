@@ -9,6 +9,14 @@ struct sessao{
 
 struct sessao ses1;
 
+void iniciarPoltronas(){
+    int i;
+    for(i=0;i<=15;i++)
+    {
+        ses1.statusPoltrona[i] = 0;
+    }
+}
+
 void exibirAssentos(int opcaoFilme, int opcaoSessao){
 
     int fileiras[10];
@@ -38,6 +46,7 @@ void exibirAssentos(int opcaoFilme, int opcaoSessao){
 
         for(j=0;j<15;j++){
             printf("%d | ", ses1. poltronas[j]);
+
         }
     }
 
@@ -46,20 +55,36 @@ void exibirAssentos(int opcaoFilme, int opcaoSessao){
     printf("\nSelecione a fileira: ");
     scanf("%d", &fileira);
 
-    printf("Selecione a poltrona: ");
-    scanf("%d", &lugar);
+    if(fileira <= 10){
+        printf("Selecione a poltrona: ");
+        scanf("%d", &lugar);
 
-    for(i=0;i<10;i++){
-            if(ses1.fileiras[i] == [fileira -1]){
-                for(j=0;j<15;j++){
-                    if(ses1.poltronas[j] == [lugar - 1]){
-                        ses1.statusPoltrona[j] = 1;
+        if(lugar <= 15)
+        {
+            for(i=0;i<10;i++){
+                if(ses1.fileiras[i] == fileira){
+                    for(j=0;j<15;j++){
+                            if(lugar == ses1.poltronas[j]){
+                                if(ses1.statusPoltrona[j] == 0){
+                                    ses1.statusPoltrona[j] = 1;
+                                    printf("\nPoltrona reservada!!!\n");
+
+                                    printf("\nFileira Selecionada: %d", ses1.fileiras[i]);
+                                    printf("\nPoltrona Selecionada: %d\n", ses1.poltronas[j]);
+                                }
+                                else{
+                                    printf("Poltrona já reservada!\n");
+                                }
+                        }
                     }
                 }
             }
+        }
+        else{
+            printf("Opção Inválida!\n");
+        }
     }
-
-    printf("\nFileira Selecionada: %d", fileira);
-    printf("\nPoltrona Selecionada: %d", lugar);
-    printf("\nPoltrona reservada!!! %d\n", ses1.statusPoltrona[lugar]);
+    else{
+        printf("Opção Inválida!\n");
+    }
 }

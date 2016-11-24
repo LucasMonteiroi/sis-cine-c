@@ -24,33 +24,34 @@ int main()
 
     int opcaoMenu, opcaoFilme, opcaoSessao, opcaoValida, opcaoFechamento;
 
+    iniciarPoltronas();
+
     while(opcaoMenu != 3){
-    exibirBoasVindas();
-    pularLinha(1);
-    exibirMenuPrincipal();
-    pularLinha(1);
+        exibirBoasVindas();
+        pularLinha(1);
+        exibirMenuPrincipal();
+        pularLinha(1);
 
-    printf("Escolha uma opção: ");
-    scanf("%d", &opcaoMenu);
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcaoMenu);
 
-    opcaoValida = validaMenu(opcaoMenu);
+        opcaoValida = validaMenu(opcaoMenu);
 
-    if(opcaoValida == 1){
-        printf("Opção escolhida: %d", opcaoMenu);
-    }
-    else{
-        system("pause");
-        limparTela();
-    }
+        if(opcaoValida == 1){
+            printf("Opção escolhida: %d", opcaoMenu);
+        }
+        else{
+            system("pause");
+            limparTela();
+        }
 
-    pularLinha(1);
+        pularLinha(1);
 
-    if(opcaoMenu == 3){
-        printf("Você selecionou a opção para sair do sistema.... Até logo!");
-    }
+        if(opcaoMenu == 3){
+            printf("Você selecionou a opção para sair do sistema.... Até logo!");
+        }
         switch(opcaoMenu)
         {
-
             case 1:
                 limparTela();
                 exibirFilmesDisponiveis();
@@ -66,6 +67,8 @@ int main()
                 }
                 else
                 {
+                    system("pause");
+                    limparTela();
                     break;
                 }
 
@@ -77,11 +80,16 @@ int main()
                 printf("Escolha uma opção: ");
                 scanf("%d", &opcaoSessao);
 
-                if(opcaoValida =! 1){
+                opcaoValida = validarSessao(opcaoSessao, opcaoFilme);
+
+                if(opcaoValida == 1){
+                    printf("Opção escolhida: %d", opcaoSessao);
+                }
+                else{
+                    system("pause");
+                    limparTela();
                     break;
                 }
-
-                printf("Opção escolhida: %d", opcaoSessao);
 
                 exibirAssentos(opcaoFilme, opcaoSessao);
 
