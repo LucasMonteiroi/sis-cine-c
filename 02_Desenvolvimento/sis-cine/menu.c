@@ -64,9 +64,9 @@ void exibirSessaoParaFilme(int opcaoFilme){
         printf("|                                           |\n");
         printf("|   Filme Escolhido: Os Vingadores          |\n");
         printf("|   Sessões:                                |\n");
-        printf("|   1 - 12:00                               |\n");
-        printf("|   2 - 15:00                               |\n");
-        printf("|   3 - 17:00                               |\n");
+        printf("|   4 - 12:00                               |\n");
+        printf("|   5 - 15:00                               |\n");
+        printf("|   6 - 17:00                               |\n");
         printf("|                                           |\n");
         printf("|___________________________________________|\n");
     }
@@ -75,9 +75,9 @@ void exibirSessaoParaFilme(int opcaoFilme){
         printf("|                                           |\n");
         printf("|   Filme Escolhido: Homem de Ferro         |\n");
         printf("|   Sessões:                                |\n");
-        printf("|   1 - 12:00                               |\n");
-        printf("|   2 - 15:00                               |\n");
-        printf("|   3 - 17:00                               |\n");
+        printf("|   7 - 12:00                               |\n");
+        printf("|   8 - 15:00                               |\n");
+        printf("|   9 - 17:00                               |\n");
         printf("|                                           |\n");
         printf("|___________________________________________|\n");
     }
@@ -86,15 +86,15 @@ void exibirSessaoParaFilme(int opcaoFilme){
         printf("|                                           |\n");
         printf("|   Filme Escolhido: Superman               |\n");
         printf("|   Sessões:                                |\n");
-        printf("|   1 - 12:00                               |\n");
-        printf("|   2 - 15:00                               |\n");
-        printf("|   3 - 17:00                               |\n");
+        printf("|   10 - 12:00                               |\n");
+        printf("|   11 - 15:00                               |\n");
+        printf("|   12 - 17:00                               |\n");
         printf("|                                           |\n");
         printf("|___________________________________________|\n");
     }
     else {
         // Opcao invalida
-        printf("Opção Inválida");
+        printf("Opção Inválida! \n");
     }
 }
 
@@ -112,7 +112,7 @@ int validaMenu(int opcaoMenu){
 int validarFilme(int opcaoFilme){
     if(opcaoFilme > 4)
     {
-        printf("Opção Inválida");
+        printf("Opção Inválida! \n");
         return 0;
     }
     else{
@@ -120,14 +120,51 @@ int validarFilme(int opcaoFilme){
     }
 }
 
-int validarSessao(int opcaoSessao){
-    if(opcaoSessao > 4)
-    {
-        printf("Opção Inválida");
-        return 0;
+int validarSessao(int opcaoSessao, int opcaoFilme){
+    int retorno;
+    switch(opcaoFilme){
+        case 1:
+            if(opcaoSessao > 0 && opcaoSessao <= 3){
+                retorno = 1;
+            }
+            else{
+                retorno = 0;
+            }
+            break;
+        case 2:
+            if(opcaoSessao > 3 && opcaoSessao <= 6){
+                retorno = 1;
+            }
+            else{
+                retorno = 0;
+            }
+            break;
+        case 3:
+            if(opcaoSessao > 6 && opcaoSessao <= 9){
+                retorno = 1;
+            }
+            else{
+                retorno = 0;
+            }
+            break;
+        case 4:
+            if(opcaoSessao > 9 && opcaoSessao <= 12){
+                retorno = 1;
+            }
+            else{
+                retorno = 0;
+            }
+            break;
+        default:
+            retorno = 0;
+            break;
+    }
+
+    if(retorno == 1){
+        return retorno;
     }
     else{
-        // Opcao Valida
-        return 1;
+        printf("Opção Inválida! \n");
+        return retorno;
     }
 }
