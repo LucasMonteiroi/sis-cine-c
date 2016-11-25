@@ -21,6 +21,7 @@ struct sessao ses11;
 struct sessao ses12;
 
 struct sessao sessaoReserva;
+struct sessao sessaoPoltronas;
 
 void liberarPoltronas(){
     int i;
@@ -41,6 +42,25 @@ void liberarPoltronas(){
     }
 }
 
+void mapearAssentos(struct sessao ses){
+    int contador, i;
+    contador = 0;
+
+        for(i=0;i<10;i++){
+        contador += 1;
+        ses.fileiras[i] = contador;
+        }
+
+        contador = 0;
+        for(i=0;i<15;i++)
+        {
+            contador += 1;
+            ses.poltronas[i] = contador;
+        }
+
+    sessaoPoltronas = ses;
+}
+
 void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
 
     int fileiras[10];
@@ -48,17 +68,9 @@ void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
     int contador, i, j, fileira, lugar;
     contador = 0;
 
-    for(i=0;i<10;i++){
-        contador += 1;
-        ses.fileiras[i] = contador;
-    }
+    mapearAssentos(ses);
 
-    contador = 0;
-    for(i=0;i<15;i++)
-    {
-        contador += 1;
-        ses.poltronas[i] = contador;
-    }
+    ses = sessaoPoltronas;
 
     for(i=0;i<10;i++){
             if(i == 9){
@@ -91,10 +103,15 @@ void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
                             if(lugar == ses.poltronas[j]){
                                 if(ses.statusPoltrona[j] == 0){
                                     ses.statusPoltrona[j] = 1;
-                                    printf("\nPoltrona reservada!!!\n");
 
                                     printf("\nFileira Selecionada: %d", ses.fileiras[i]);
                                     printf("\nPoltrona Selecionada: %d\n", ses.poltronas[j]);
+
+                                    // Realizar Venda
+
+                                    printf("\nReservada Concluida!!!\n");
+
+
                                 }
                                 else{
                                     printf("Poltrona já reservada!\n");
@@ -105,90 +122,66 @@ void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
             }
         }
         else{
-            printf("Opção Inválida!\n");
+            printf("Poltrona Inválida!\n");
         }
     }
     else{
-        printf("Opção Inválida!\n");
+        printf("Fileira Inválida!\n");
     }
 
-    switch(opcaoSessao){
-        case 1:
-            ses1 = ses;
-            break;
-        case 2:
-            ses2 = ses;
-            break;
-        case 3:
-            ses3 = ses;
-            break;
-        case 4:
-            ses4 = ses;
-            break;
-        case 5:
-            ses5 = ses;
-            break;
-        case 6:
-            ses6 = ses;
-            break;
-        case 7:
-            ses7 = ses;
-            break;
-        case 8:
-            ses8 = ses;
-            break;
-        case 9:
-            ses9 = ses;
-            break;
-        case 10:
-            ses10 = ses;
-            break;
-        case 11:
-            ses11 = ses;
-            break;
-        case 12:
-            ses12 = ses;
-            break;
-    }
+    sessaoReserva = ses;
+
 }
 
 void verificaSessaoEReserva(int opcaoFilme, int opcaoSessao){
     switch(opcaoSessao){
         case 1:
             reservarAssento(opcaoFilme, opcaoSessao, ses1);
+            ses1 = sessaoReserva;
             break;
         case 2:
             reservarAssento(opcaoFilme, opcaoSessao, ses2);
+            ses2 = sessaoReserva;
             break;
         case 3:
             reservarAssento(opcaoFilme, opcaoSessao, ses3);
+            ses3 = sessaoReserva;
             break;
         case 4:
             reservarAssento(opcaoFilme, opcaoSessao, ses4);
+            ses4 = sessaoReserva;
             break;
         case 5:
             reservarAssento(opcaoFilme, opcaoSessao, ses5);
+            ses5 = sessaoReserva;
             break;
         case 6:
             reservarAssento(opcaoFilme, opcaoSessao, ses6);
+            ses6 = sessaoReserva;
             break;
         case 7:
             reservarAssento(opcaoFilme, opcaoSessao, ses7);
+            ses7 = sessaoReserva;
             break;
         case 8:
             reservarAssento(opcaoFilme, opcaoSessao, ses8);
+            ses8 = sessaoReserva;
             break;
         case 9:
             reservarAssento(opcaoFilme, opcaoSessao, ses9);
+            ses9 = sessaoReserva;
             break;
         case 10:
             reservarAssento(opcaoFilme, opcaoSessao, ses10);
+            ses10 = sessaoReserva;
             break;
         case 11:
             reservarAssento(opcaoFilme, opcaoSessao, ses11);
+            ses11 = sessaoReserva;
             break;
         case 12:
             reservarAssento(opcaoFilme, opcaoSessao, ses12);
+            ses12 = sessaoReserva;
             break;
     }
 }

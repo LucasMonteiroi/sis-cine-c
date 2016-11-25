@@ -1,9 +1,8 @@
 #include "stdio.h"
 #include "conio.h"
 #include "locale.h"
-#include "menu.c"
 
-
+/*
 void pularLinha(int linhas){
         int i;
         for(i=0;i<linhas;i++)
@@ -63,3 +62,4 @@ int main()
 }
 
 
+*/

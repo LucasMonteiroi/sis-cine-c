@@ -26,7 +26,7 @@ int main()
 
     liberarPoltronas();
 
-    while(opcaoMenu != 3){
+    while(opcaoMenu != 0){
         exibirBoasVindas();
         pularLinha(1);
         exibirMenuPrincipal();
@@ -47,7 +47,7 @@ int main()
 
         pularLinha(1);
 
-        if(opcaoMenu == 3){
+        if(opcaoMenu == 0){
             printf("Você selecionou a opção para sair do sistema.... Até logo!");
         }
         switch(opcaoMenu)
@@ -63,7 +63,7 @@ int main()
                 opcaoValida = validarFilme(opcaoFilme);
 
                 if(opcaoValida == 1){
-                    printf("Opção escolhida: %d", opcaoFilme);
+                    printf("Opção escolhida: %d\n", opcaoFilme);
                 }
                 else
                 {
@@ -83,7 +83,7 @@ int main()
                 opcaoValida = validarSessao(opcaoSessao, opcaoFilme);
 
                 if(opcaoValida == 1){
-                    printf("Opção escolhida: %d", opcaoSessao);
+                    printf("Opção escolhida: %d\n", opcaoSessao);
                 }
                 else{
                     system("pause");
@@ -106,6 +106,18 @@ int main()
                 scanf("%d", &opcaoFechamento);
 
                 system("pause");
+                break;
+            case 3:
+                limparTela();
+                pularLinha(1);
+                exibirValoresDeIngressos();
+
+                pularLinha(2);
+
+                printf("Retornando ao menu principal....\n");
+                system("pause");
+
+                limparTela();
                 break;
         }
     }

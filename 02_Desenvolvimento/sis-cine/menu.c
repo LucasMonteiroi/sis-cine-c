@@ -17,7 +17,8 @@ void exibirMenuPrincipal(){
     printf("|   Menu Principal:                         |\n");
     printf("|   1 - Escolha de Filmes                   |\n");
     printf("|   2 - Fechamento do Caixa                 |\n");
-    printf("|   3 - Sair                                |\n");
+    printf("|   3 - Valores de Ingressos                |\n");
+    printf("|   0 - Sair                                |\n");
     printf("|                                           |\n");
     printf("|___________________________________________|\n");
 }
@@ -25,7 +26,7 @@ void exibirMenuPrincipal(){
 void exibirFilmesDisponiveis(){
     printf("|-------------------------------------------|\n");
     printf("|                                           |\n");
-    printf("|   Menu Principal:                         |\n");
+    printf("|   Menu de Filmes:                         |\n");
     printf("|   1 - Batman                              |\n");
     printf("|   2 - Os Vingadores                       |\n");
     printf("|   3 - Homem de Ferro                      |\n");
@@ -98,8 +99,19 @@ void exibirSessaoParaFilme(int opcaoFilme){
     }
 }
 
+void exibirValoresDeIngressos(){
+    printf("|-------------------------------------------|\n");
+    printf("|                                           |\n");
+    printf("|           Cinema para Todos               |\n");
+    printf("|   Valores de Ingressos:                   |\n");
+    printf("|   Inteira: R$ 14,00                       |\n");
+    printf("|   Meia: R$ 7,00                           |\n");
+    printf("|                                           |\n");
+    printf("|___________________________________________|\n");
+}
+
 int validaMenu(int opcaoMenu){
-    if(opcaoMenu > 3)
+    if(opcaoMenu > 3 || opcaoMenu < 0)
     {
         printf("Opção Inválida\n\n");
         return 0;
@@ -112,7 +124,7 @@ int validaMenu(int opcaoMenu){
 int validarFilme(int opcaoFilme){
     if(opcaoFilme > 4)
     {
-        printf("Opção Inválida! \n");
+        printf("Filme Inválido! \n");
         return 0;
     }
     else{
@@ -164,7 +176,7 @@ int validarSessao(int opcaoSessao, int opcaoFilme){
         return retorno;
     }
     else{
-        printf("Opção Inválida! \n");
+        printf("Sessão Inválida! \n");
         return retorno;
     }
 }
