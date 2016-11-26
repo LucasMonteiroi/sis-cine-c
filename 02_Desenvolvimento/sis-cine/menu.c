@@ -4,7 +4,7 @@
 
 void exibirBoasVindas(){
     printf("|-------------------------------------------|\n");
-    printf("|                   Ol·                     |\n");
+    printf("|                   Ol√°                     |\n");
     printf("|            Cinema para Todos              |\n");
     printf("|               Bem vindo(a)                |\n");
     printf("|                                           |\n");
@@ -53,7 +53,7 @@ void exibirSessaoParaFilme(int opcaoFilme){
         printf("|-------------------------------------------|\n");
         printf("|                                           |\n");
         printf("|   Filme Escolhido: Batman                 |\n");
-        printf("|   Sessıes:                                |\n");
+        printf("|   Sess√µes:                                |\n");
         printf("|   1 - 12:00                               |\n");
         printf("|   2 - 15:00                               |\n");
         printf("|   3 - 17:00                               |\n");
@@ -65,7 +65,7 @@ void exibirSessaoParaFilme(int opcaoFilme){
         printf("|-------------------------------------------|\n");
         printf("|                                           |\n");
         printf("|   Filme Escolhido: Os Vingadores          |\n");
-        printf("|   Sessıes:                                |\n");
+        printf("|   Sess√µes:                                |\n");
         printf("|   4 - 12:00                               |\n");
         printf("|   5 - 15:00                               |\n");
         printf("|   6 - 17:00                               |\n");
@@ -76,7 +76,7 @@ void exibirSessaoParaFilme(int opcaoFilme){
         printf("|-------------------------------------------|\n");
         printf("|                                           |\n");
         printf("|   Filme Escolhido: Homem de Ferro         |\n");
-        printf("|   Sessıes:                                |\n");
+        printf("|   Sess√µes:                                |\n");
         printf("|   7 - 12:00                               |\n");
         printf("|   8 - 15:00                               |\n");
         printf("|   9 - 17:00                               |\n");
@@ -87,7 +87,7 @@ void exibirSessaoParaFilme(int opcaoFilme){
         printf("|-------------------------------------------|\n");
         printf("|                                           |\n");
         printf("|   Filme Escolhido: Superman               |\n");
-        printf("|   Sessıes:                                |\n");
+        printf("|   Sess√µes:                                |\n");
         printf("|   10 - 12:00                               |\n");
         printf("|   11 - 15:00                               |\n");
         printf("|   12 - 17:00                               |\n");
@@ -96,7 +96,7 @@ void exibirSessaoParaFilme(int opcaoFilme){
     }
     else {
         // Opcao invalida
-        printf("OpÁ„o Inv·lida! \n");
+        printf("Op√ß√£o Inv√°lida! \n");
     }
 }
 
@@ -111,10 +111,22 @@ void exibirValoresDeIngressos(){
     printf("|___________________________________________|\n");
 }
 
+void exibirFormasdePagamento(){
+    printf("|-----------------------------------------------|\n");
+    printf("|                                               |\n");
+    printf("|      Formas de Pagamento:                     |\n");
+    printf("|                                               |\n");
+    printf("|  1 - Dinheiro                                 |\n");
+    printf("|  2 - D√©bito                                   |\n");
+    printf("|  3 - Cr√©dito                                  |\n");
+    printf("|                                               |\n");
+    printf("|_______________________________________________|\n");
+}
+
 int validaMenu(int opcaoMenu){
     if(opcaoMenu >4 || opcaoMenu < 0)
     {
-        printf("OpÁ„o Inv·lida\n\n");
+        printf("Op√ß√£o Inv√°lida\n\n");
         return 0;
     }
     else{
@@ -125,7 +137,7 @@ int validaMenu(int opcaoMenu){
 int validarFilme(int opcaoFilme){
     if(opcaoFilme > 4)
     {
-        printf("Filme Inv·lido! \n");
+        printf("Filme Inv√°lido! \n");
         return 0;
     }
     else{
@@ -177,7 +189,7 @@ int validarSessao(int opcaoSessao, int opcaoFilme){
         return retorno;
     }
     else{
-        printf("Sess„o Inv·lida! \n");
+        printf("Sess√£o Inv√°lida! \n");
         return retorno;
     }
 }
