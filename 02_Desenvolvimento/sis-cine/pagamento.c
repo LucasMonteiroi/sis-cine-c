@@ -3,18 +3,9 @@
 #include "locale.h"
 
 /*
-void pularLinha(int linhas){
-        int i;
-        for(i=0;i<linhas;i++)
-        {
-            printf("\n");
-        }
-}
-
-int main()
+realizarVenda()
 {
     setlocale(LC_ALL, "Portuguese");
-    exibirValorIngressos();
     int qtdInt, qtdMeia, qtdGratis, totalIngresso, op;
     float meiaEntrada = 12.50, integral = 25.00, totalInt, totalMeia, totalCompra, vPago, troco;
 

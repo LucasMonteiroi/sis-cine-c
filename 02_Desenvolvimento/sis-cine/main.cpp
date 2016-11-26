@@ -119,6 +119,50 @@ int main()
 
                 limparTela();
                 break;
+            case 4:
+                limparTela();
+                exibirFilmesDisponiveis();
+                pularLinha(1);
+
+                printf("Selecione uma opção: ");
+                scanf("%d", &opcaoFilme);
+
+                opcaoValida = validarFilme(opcaoFilme);
+
+                if(opcaoValida == 1){
+                    printf("Opção escolhida: %d\n", opcaoFilme);
+                }
+                else
+                {
+                    system("pause");
+                    limparTela();
+                    break;
+                }
+
+                pularLinha(1);
+                exibirSessaoParaFilme(opcaoFilme);
+
+                pularLinha(1);
+
+                printf("Escolha uma opção: ");
+                scanf("%d", &opcaoSessao);
+
+                opcaoValida = validarSessao(opcaoSessao, opcaoFilme);
+
+                if(opcaoValida == 1){
+                    printf("Opção escolhida: %d\n", opcaoSessao);
+                }
+                else{
+                    system("pause");
+                    limparTela();
+                    break;
+                }
+
+                desbloquearPoltronas(opcaoFilme, opcaoSessao);
+
+                system("pause");
+                limparTela();
+                break;
         }
     }
 

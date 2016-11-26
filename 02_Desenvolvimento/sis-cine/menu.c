@@ -18,6 +18,7 @@ void exibirMenuPrincipal(){
     printf("|   1 - Escolha de Filmes                   |\n");
     printf("|   2 - Fechamento do Caixa                 |\n");
     printf("|   3 - Valores de Ingressos                |\n");
+    printf("|   4 - Liberar Poltronas                   |\n");
     printf("|   0 - Sair                                |\n");
     printf("|                                           |\n");
     printf("|___________________________________________|\n");
@@ -111,7 +112,7 @@ void exibirValoresDeIngressos(){
 }
 
 int validaMenu(int opcaoMenu){
-    if(opcaoMenu > 3 || opcaoMenu < 0)
+    if(opcaoMenu >4 || opcaoMenu < 0)
     {
         printf("Opção Inválida\n\n");
         return 0;
