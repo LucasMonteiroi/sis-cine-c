@@ -6,10 +6,55 @@ struct pagamentos{
     int cont;
     int qtdIngressos[100];
     float valorIngressos[100];
-    time_t dataCompra[100];
+    float total;
+
 };
 
 struct pagamentos resumoPagamento;
+
+void inicializarPagamento(){
+    int i;
+
+    resumoPagamento.cont = 0;
+    resumoPagamento.total = 0;
+
+    for(i=0;i<100;i++){
+        resumoPagamento.qtdIngressos[i] = 0;
+        resumoPagamento.valorIngressos[i] = 0;
+    }
+}
+
+void resumoPagamentos(){
+    int i;
+
+    printf("|-------------------------------------------|\n");
+    printf("|                                           |\n");
+    printf("|   Resumo de Ingressos:                    |\n");
+    printf("|   Qtd                         Valor(R$)   |\n");
+    printf("|                                           |\n");
+
+    for(i=0;i<100;i++){
+        if(resumoPagamento.qtdIngressos[i] > 0){
+            printf("|   %d                         R$ %2.f        |\n", resumoPagamento.qtdIngressos[i], resumoPagamento.valorIngressos[i]);
+        }
+    }
+
+    printf("|                                           |\n");
+    printf("|___________________________________________|\n\n\n");
+}
+
+void atualizarPagamentos(int qtdIngressos, float valorIngressos){
+    int i;
+
+    resumoPagamento.qtdIngressos[resumoPagamento.cont] = qtdIngressos;
+    resumoPagamento.valorIngressos[resumoPagamento.cont] = valorIngressos;
+
+    for(i=0;i<100;i++){
+        resumoPagamento.total += resumoPagamento.valorIngressos[i];
+    }
+
+    resumoPagamento.cont +=1;
+}
 
 void exibirPagamentos(){
     printf("|-----------------------------------------------|\n");
@@ -53,6 +98,8 @@ int pagamentoIngresso(int qtdIngressos)
     totalCompra = 0;
     totalInt = 0;
     totalMeia = 0;
+
+    printf("\nIngressos Selecionados: %d\n", qtdIngressos);
 
     while(totalIngresso != 0){
         printf("Informe a quantidade de ingressos integrais: ");
@@ -126,35 +173,37 @@ int pagamentoIngresso(int qtdIngressos)
                 printf("\nDigite o valor recebido: R$ ");
                 scanf("%f", &vPago);
 
-                if(vPago >= totalCompra){
-                    troco = vPago - totalCompra;
-                printf("\nTroco: R$ %f", troco);
+                if(vPago >= vRestante){
+                    troco = vPago - vRestante;
+                    printf("\nTroco: R$ %2.f\n", troco);
                 }
                 else{
                     printf("\nValor insuficiente, realize uma nova compra!");
-
                     return 0;
                 }
 
+                return 1;
             }
+
+            atualizarPagamentos(qtdIngressos, totalCompra);
+
             break;
         case 2:
             while(opcaoCartao != 1){
                 printf("\n\nInsira o cart„o.");
                 printf("\nCart„o Inserido? \n");
                 printf("1 - Sim | 0 - N„o : ");
-                scanf("%d", opcaoCartao);
+                scanf("%d", &opcaoCartao);
 
-                if(opcaoCartao < 0 || opcaoCartao > 1){
+                if(opcaoCartao > 1){
                     printf("\nOpÁ„o Inv·lida\n");
                 }
-                else if (opcaoCartao == 1){
+
+                if (opcaoCartao == 1){
                     printf("\nCompra Aprovada!\n");
                     printf("Retire o Cart„o!\n");
-                    system("pause");
-
+                    atualizarPagamentos(qtdIngressos, totalCompra);
                     return 1;
-
                 }
                 else{
                     printf("\n… necess·rio inserir o cart„o!\n\n");
@@ -174,13 +223,9 @@ int pagamentoIngresso(int qtdIngressos)
                 else if (opcaoCartao == 1){
                     printf("\nCompra Aprovada!\n");
                     printf("Retire o Cart„o!\n");
-
-                    system("pause");
+                    atualizarPagamentos(qtdIngressos, totalCompra);
 
                     return 1;
-
-
-
                 }
                 else{
                     printf("\n… necess·rio inserir o cart„o!\n\n");
@@ -346,11 +391,12 @@ void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
             retorno = pagamentoIngresso(qtdIngresso);
 
             if(retorno == 0){
-                system("cls");
                 printf("\nA compra n„o foi efetuada!\n");
                 printf("\nLiberando todos as poltronas...\n");
                 liberarPoltronas();
             }
+
+            system("pause");
         }
     }
 

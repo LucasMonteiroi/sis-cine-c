@@ -145,6 +145,24 @@ int validarFilme(int opcaoFilme){
     }
 }
 
+int validarFechamento(int opcao){
+    int retorno;
+    if(opcao > 0 && opcao <= 2){
+        retorno = 1;
+    }
+    else{
+        retorno = 0;
+    }
+
+    if(retorno == 1){
+        return retorno;
+    }
+    else{
+        printf("Opção Inválida! \n");
+        return retorno;
+    }
+}
+
 int validarSessao(int opcaoSessao, int opcaoFilme){
     int retorno;
     switch(opcaoFilme){

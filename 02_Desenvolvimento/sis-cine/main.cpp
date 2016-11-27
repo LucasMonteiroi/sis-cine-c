@@ -25,6 +25,7 @@ int main()
     int opcaoMenu, opcaoFilme, opcaoSessao, opcaoValida, opcaoFechamento;
 
     liberarPoltronas();
+    inicializarPagamento();
 
     while(opcaoMenu != 0){
         exibirBoasVindas();
@@ -105,7 +106,24 @@ int main()
                 printf("Escolha uma opção: ");
                 scanf("%d", &opcaoFechamento);
 
+                opcaoValida = validarFechamento(opcaoFechamento);
+
+                if(opcaoValida == 1){
+                    printf("Opção escolhida: %d\n", opcaoFechamento);
+                }
+                else{
+                    system("pause");
+                    limparTela();
+                    break;
+                }
+
+                if(opcaoFechamento == 2){
+                    resumoPagamentos();
+                }
+
+
                 system("pause");
+                system("cls");
                 break;
             case 3:
                 limparTela();
