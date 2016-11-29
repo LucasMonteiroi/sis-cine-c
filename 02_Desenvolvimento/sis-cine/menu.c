@@ -1,6 +1,5 @@
 #include "stdio.h"
 #include "conio.h"
-#include "locale.h"
 
 void exibirBoasVindas(){
     printf("|-------------------------------------------|\n");

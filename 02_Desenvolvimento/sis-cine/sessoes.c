@@ -1,6 +1,5 @@
 #include "stdio.h"
 #include "conio.h"
-#include "locale.h"
 
 struct pagamentos{
     int cont;

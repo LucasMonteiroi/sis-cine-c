@@ -36,9 +36,6 @@
 		<Unit filename="menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="pagamento.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="sessoes.c">
 			<Option compilerVar="CC" />
 		</Unit>
