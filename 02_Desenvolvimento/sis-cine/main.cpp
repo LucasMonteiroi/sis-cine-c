@@ -117,7 +117,7 @@ int main()
                     break;
                 }
 
-                if(opcaoFechamento == 2){
+                if(opcaoFechamento == 1){
                     resumoPagamentos();
                 }
 

@@ -194,7 +194,7 @@ int pagamentoIngresso(int qtdIngressos)
                 printf("1 - Sim | 0 - Não : ");
                 scanf("%d", &opcaoCartao);
 
-                if(opcaoCartao > 1){
+                if(opcaoCartao < 0 || opcaoCartao > 1){
                     printf("\nOpção Inválida\n");
                 }
 

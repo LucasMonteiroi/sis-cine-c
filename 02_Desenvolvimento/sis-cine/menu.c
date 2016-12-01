@@ -27,7 +27,7 @@ void exibirFilmesDisponiveis(){
     printf("|-------------------------------------------|\n");
     printf("|                                           |\n");
     printf("|   Menu de Filmes:                         |\n");
-    printf("|   1 - Batman                              |\n");
+    printf("|   1 - 12 Anos de Escravidão               |\n");
     printf("|   2 - Os Vingadores                       |\n");
     printf("|   3 - Homem de Ferro                      |\n");
     printf("|   4 - Superman                            |\n");
@@ -40,7 +40,6 @@ void exibirMenuFechamento(){
     printf("|                                           |\n");
     printf("|   Fechamento do caixa:                    |\n");
     printf("|   1 - Ingressos Vendidos                  |\n");
-    printf("|   2 - Resumo de Valores                   |\n");
     printf("|                                           |\n");
     printf("|___________________________________________|\n");
 }
@@ -51,7 +50,7 @@ void exibirSessaoParaFilme(int opcaoFilme){
         // Exibir Menu de Sessoes
         printf("|-------------------------------------------|\n");
         printf("|                                           |\n");
-        printf("|   Filme Escolhido: Batman                 |\n");
+        printf("|   Filme Escolhido: 12 Anos de Escravidão  |\n");
         printf("|   Sessões:                                |\n");
         printf("|   1 - 12:00                               |\n");
         printf("|   2 - 15:00                               |\n");
