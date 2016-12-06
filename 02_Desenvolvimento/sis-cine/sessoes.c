@@ -1,5 +1,58 @@
 #include "stdio.h"
 #include "conio.h"
+#include "time.h"
+
+void imprimirVoucher(int filme, int poltronas[20], int qtdIngresso){
+    int i;
+    if(filme == 1){
+        for(i=1;i<=qtdIngresso;i++){
+            printf("|--------------------------------------------------|\n");
+            printf("|  Data: %s Hora: %s                            |\n",__DATE__,__TIME__);
+            printf("|                                                  |\n");
+            printf("| Filme Escolhido: 12 Anos de Escravidão - Sala 01 |\n");
+            printf("|                                                  |\n");
+            printf("|  Poltrona: %d                                    |\n", poltronas[i]);
+            printf("|__________________________________________________|\n");
+        }
+    }
+
+    if(filme == 2){
+        for(i=1;i<=qtdIngresso;i++){
+            printf("|-----------------------------------------------|\n");
+            printf("|  Data: %s Hora: %s                            |\n",__DATE__,__TIME__);
+            printf("|                                               |\n");
+            printf("|  Filme Escolhido: Os Vingadores - Sala 01     |\n");
+            printf("|                                               |\n");
+            printf("|  Poltrona: %d                                 |\n", poltronas[i]);
+            printf("|_______________________________________________|\n");
+        }
+    }
+
+    if(filme == 3){
+        for(i=1;i<=qtdIngresso;i++){
+            printf("|-----------------------------------------------|\n");
+            printf("|  Data: %s Hora: %s                            |\n",__DATE__,__TIME__);
+            printf("|                                               |\n");
+            printf("|  Filme Escolhido: Homem de Ferro - Sala 02    |\n");
+            printf("|                                               |\n");
+            printf("|  Poltrona: %d                                 |\n", poltronas[i]);
+            printf("|_______________________________________________|\n");
+        }
+
+    }
+
+    if(filme == 4){
+        for(i=1;i<=qtdIngresso;i++){
+            printf("|-----------------------------------------------|\n");
+            printf("|  Data: %s Hora: %s                            |\n",__DATE__,__TIME__);
+            printf("|                                               |\n");
+            printf("|  Filme Escolhido: Superman - Sala 02          |\n");
+            printf("|                                               |\n");
+            printf("|  Poltrona: %d                                 |\n", poltronas[i]);
+            printf("|_______________________________________________|\n");
+        }
+    }
+}
 
 struct pagamentos{
     int cont;
@@ -31,10 +84,9 @@ void resumoPagamentos(){
     printf("|   Resumo de Ingressos:                    |\n");
     printf("|   Qtd                         Valor(R$)   |\n");
     printf("|                                           |\n");
-
     for(i=0;i<100;i++){
         if(resumoPagamento.qtdIngressos[i] > 0){
-            printf("|   %d                         R$ %2.f        |\n", resumoPagamento.qtdIngressos[i], resumoPagamento.valorIngressos[i]);
+            printf("|   %d                         R$ %2.f      |\n", resumoPagamento.qtdIngressos[i], resumoPagamento.valorIngressos[i]);
         }
     }
 
@@ -236,9 +288,8 @@ int pagamentoIngresso(int qtdIngressos)
 
 
 struct sessao{
-    int fileiras[10];
-    int poltronas[15];
-    int statusPoltrona[15];
+    int poltronas[20];
+    int statusPoltrona[20];
 };
 
 struct tipoIngresso{
@@ -287,28 +338,21 @@ void liberarPoltronas(){
 
 void mapearAssentos(struct sessao ses){
     int contador, i;
+
     contador = 0;
-
-        for(i=0;i<10;i++){
+    for(i=0;i<20;i++)
+    {
         contador += 1;
-        ses.fileiras[i] = contador;
-        }
-
-        contador = 0;
-        for(i=0;i<15;i++)
-        {
-            contador += 1;
-            ses.poltronas[i] = contador;
-        }
+        ses.poltronas[i] = contador;
+    }
 
     sessaoReserva = ses;
 }
 
 void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
 
-    int fileiras[10];
-    int poltronas[15];
-    int contador, i, j, fileira, lugar, opcao, qtdIngresso;
+    int poltronas[20];
+    int contador, i, j, lugar, opcao, qtdIngresso;
     contador = 0;
     opcao = 1;
 
@@ -319,59 +363,34 @@ void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
     while(opcao != 0){
         ses = sessaoReserva;
         //ses = sessaoPoltronas;
-
-        for(i=0;i<10;i++){
-                if(i == 9){
-                    printf("\nFileira %d : | ", ses.fileiras[i]);
-                }
-                else{
-                    printf("\nFileira  %d : | ", ses.fileiras[i]);
-                }
-
-            for(j=0;j<15;j++){
-                printf("%d | ", ses. poltronas[j]);
-
-            }
+        for(i=0;i<20;i++){
+            printf("%d | ", ses. poltronas[i]);
         }
 
         printf("\n");
+        printf("Selecione a poltrona: ");
+        scanf("%d", &lugar);
 
-        printf("\nSelecione a fileira: ");
-        scanf("%d", &fileira);
+        if(lugar <= 20)
+        {
+            for(i=0;i<20;i++){
+                if(lugar == ses.poltronas[i]){
+                    if(ses.statusPoltrona[i] == 0){
+                        ses.statusPoltrona[i] = 1;
 
-        if(fileira <= 10){
-            printf("Selecione a poltrona: ");
-            scanf("%d", &lugar);
+                        qtdIngresso += 1;
+                        poltronas[i] = lugar;
+                        printf("\nPoltrona Selecionada: %d\n", ses.poltronas[i]);
 
-            if(lugar <= 15)
-            {
-                for(i=0;i<10;i++){
-                    if(ses.fileiras[i] == fileira){
-                        for(j=0;j<15;j++){
-                                if(lugar == ses.poltronas[j]){
-                                    if(ses.statusPoltrona[j] == 0){
-                                        ses.statusPoltrona[j] = 1;
-
-                                        qtdIngresso += 1;
-
-                                        printf("\nFileira Selecionada: %d", ses.fileiras[i]);
-                                        printf("\nPoltrona Selecionada: %d\n", ses.poltronas[j]);
-
-                                    }
-                                    else{
-                                        printf("Poltrona já reservada!\n");
-                                    }
-                            }
-                        }
+                    }
+                    else{
+                        printf("Poltrona já reservada!\n");
                     }
                 }
             }
-            else{
-                printf("Poltrona Inválida!\n");
-            }
         }
         else{
-            printf("Fileira Inválida!\n");
+            printf("Poltrona Inválida!\n");
         }
 
         sessaoReserva = ses;
@@ -389,13 +408,14 @@ void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
         else if(opcao == 0){
             retorno = pagamentoIngresso(qtdIngresso);
 
+            imprimirVoucher(opcaoFilme, poltronas, qtdIngresso);
+
             if(retorno == 0){
                 printf("\nA compra não foi efetuada!\n");
                 printf("\nLiberando todos as poltronas...\n");
                 liberarPoltronas();
+                system("pause");
             }
-
-            system("pause");
         }
     }
 
@@ -405,8 +425,7 @@ void reservarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
 
 void liberarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
 
-    int fileiras[10];
-    int poltronas[15];
+    int poltronas[20];
     int contador, i, j, fileira, lugar;
     contador = 0;
 
@@ -414,55 +433,33 @@ void liberarAssento(int opcaoFilme, int opcaoSessao, struct sessao ses){
 
     ses = sessaoReserva;
 
-    for(i=0;i<10;i++){
-            if(i == 9){
-                printf("\nFileira %d : | ", ses.fileiras[i]);
-            }
-            else{
-                printf("\nFileira  %d : | ", ses.fileiras[i]);
-            }
-
-        for(j=0;j<15;j++){
-            printf("%d | ", ses. poltronas[j]);
-
-        }
+    for(i=0;i<20;i++){
+        printf("%d | ", ses. poltronas[i]);
     }
 
     printf("\n");
 
-    printf("\nSelecione a fileira: ");
-    scanf("%d", &fileira);
+    printf("Selecione a poltrona: ");
+    scanf("%d", &lugar);
 
-    if(fileira <= 10){
-        printf("Selecione a poltrona: ");
-        scanf("%d", &lugar);
+    if(lugar <= 20)
+    {
+        for(j=0;j<15;j++){
+            if(lugar == ses.poltronas[j]){
+                if(ses.statusPoltrona[j] == 1){
+                    ses.statusPoltrona[j] = 0;
 
-        if(lugar <= 15)
-        {
-            for(i=0;i<10;i++){
-                if(ses.fileiras[i] == fileira){
-                    for(j=0;j<15;j++){
-                            if(lugar == ses.poltronas[j]){
-                                if(ses.statusPoltrona[j] == 1){
-                                    ses.statusPoltrona[j] = 0;
+                    printf("\nPoltrona Liberada!!!\n");
 
-                                    printf("\nPoltrona Liberada!!!\n");
-
-                                }
-                                else{
-                                    printf("Poltrona já liberada!\n");
-                                }
-                        }
-                    }
+                }
+                else{
+                    printf("Poltrona já liberada!\n");
                 }
             }
         }
-        else{
-            printf("Poltrona Inválida!\n");
-        }
     }
     else{
-        printf("Fileira Inválida!\n");
+        printf("Poltrona Inválida!\n");
     }
 
     sessaoReserva = ses;

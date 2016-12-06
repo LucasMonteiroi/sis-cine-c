@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1480556794 source:c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\main.cpp
+1480986289 source:c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\main.cpp
 	"stdio.h"
 	"conio.h"
 	"locale.h"
@@ -7,24 +7,25 @@
 	"menu.c"
 	"sessoes.c"
 
-1480556748 c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\menu.c
+1480557045 c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\menu.c
 	"stdio.h"
 	"conio.h"
 
-1480556748 source:c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\menu.c
+1480557045 source:c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\menu.c
 	"stdio.h"
 	"conio.h"
 
-1480461302 c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\sessoes.c
+1480987847 c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\sessoes.c
 	"stdio.h"
 	"conio.h"
+	"time.h"
 
 1480264678 source:c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\pagamento.c
 	"stdio.h"
 	"conio.h"
 	"locale.h"
 
-1480461302 source:c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\sessoes.c
+1480985517 source:c:\sandbox\sis-cine-c\02_desenvolvimento\sis-cine\sessoes.c
 	"stdio.h"
 	"conio.h"
 

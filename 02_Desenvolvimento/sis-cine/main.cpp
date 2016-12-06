@@ -119,6 +119,21 @@ int main()
 
                 if(opcaoFechamento == 1){
                     resumoPagamentos();
+
+                    printf("\nDeseja limpar o Caixa?\n 0 - Não | 1 - Sim : ");
+                    scanf("%d", &opcaoFechamento);
+
+                    if(opcaoFechamento == 1){
+                        inicializarPagamento();
+                    }else if(opcaoFechamento == 0){
+                        system("cls");
+                        break;
+                    }
+                    else{
+                        printf("\nOpção Inválida!");
+                        break;
+                    }
+
                 }
 
 
