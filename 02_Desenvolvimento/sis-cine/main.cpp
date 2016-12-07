@@ -154,13 +154,13 @@ int main()
                 break;
             case 4:
                 limparTela();
-                exibirFilmesDisponiveis();
+                exibirFilmesDisponiveisFechamento();
                 pularLinha(1);
 
                 printf("Selecione uma opção: ");
                 scanf("%d", &opcaoFilme);
 
-                opcaoValida = validarFilme(opcaoFilme);
+                opcaoValida = validarFilmeDesbloqueio(opcaoFilme);
 
                 if(opcaoValida == 1){
                     printf("Opção escolhida: %d\n", opcaoFilme);
@@ -173,6 +173,15 @@ int main()
                 }
 
                 pularLinha(1);
+
+                if(opcaoFilme == 5){
+                    liberarPoltronas();
+                    printf("\nLiberando todas as poltronas....\n");
+                    system("pause");
+                    limparTela();
+                    break;
+                }
+
                 exibirSessaoParaFilme(opcaoFilme);
 
                 pularLinha(1);

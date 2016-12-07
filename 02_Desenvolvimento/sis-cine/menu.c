@@ -35,6 +35,19 @@ void exibirFilmesDisponiveis(){
     printf("|___________________________________________|\n");
 }
 
+void exibirFilmesDisponiveisFechamento(){
+    printf("|-------------------------------------------|\n");
+    printf("|                                           |\n");
+    printf("|   Menu de Filmes:                         |\n");
+    printf("|   1 - 12 Anos de Escravidão               |\n");
+    printf("|   2 - Os Vingadores                       |\n");
+    printf("|   3 - Homem de Ferro                      |\n");
+    printf("|   4 - Superman                            |\n");
+    printf("|   5 - Liberar Todas                       |\n");
+    printf("|                                           |\n");
+    printf("|___________________________________________|\n");
+}
+
 void exibirMenuFechamento(){
     printf("|-------------------------------------------|\n");
     printf("|                                           |\n");
@@ -207,5 +220,16 @@ int validarSessao(int opcaoSessao, int opcaoFilme){
     else{
         printf("Sessão Inválida! \n");
         return retorno;
+    }
+}
+
+int validarFilmeDesbloqueio(int opcaoFilme){
+    if(opcaoFilme > 5)
+    {
+        printf("Opção Inválida! \n");
+        return 0;
+    }
+    else{
+        return 1;
     }
 }
